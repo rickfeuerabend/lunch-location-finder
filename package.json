@@ -1,6 +1,6 @@
 {
   "name": "lunch-location-finder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Lunch location finder for Jena",
   "main": "src/index.js",
   "scripts": {
@@ -26,9 +26,17 @@
   "homepage": "https://github.com/rickfeuerabend/lunch-location-finder#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0"
   },
   "dependencies": {
-    "lodash": "^4.17.11"
+    "cheerio": "^1.0.0-rc.2",
+    "lodash": "^4.17.11",
+    "node-fetch": "^2.3.0"
   }
 }
