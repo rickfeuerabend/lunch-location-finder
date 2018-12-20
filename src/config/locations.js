@@ -17,8 +17,6 @@ export default [
           const menu = $("#main")
             .find(".entry-content")
             .text()
-
-          var re = /Donnerstag(.*)Freitag/gms
           var re = new RegExp(
             `${getWeekDay()}(.*)${getWeekDayOfTomorrow()}`,
             "gms"
