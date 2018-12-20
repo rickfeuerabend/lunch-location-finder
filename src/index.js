@@ -1,7 +1,5 @@
-require("babel-core/register")
-require("babel-polyfill")
-
 require("babel-register")({
-  presets: ["env", "es2015", "stage-0"]
+  presets: ["env"]
 })
+
 module.exports = require("./app.js")

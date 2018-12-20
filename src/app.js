@@ -5,3 +5,5 @@ import { getWeekDay, getWeekDayOfTomorrow } from "./uitls"
 export default function getLocation() {
   return sample(locations)
 }
+
+getLocation()
