@@ -1,5 +1,5 @@
 # leave everything else untouched
 .idea/
 .vscode/
-lib/
+dist/
 node_modules/
