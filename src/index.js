@@ -1,6 +1,7 @@
-import sample from "lodash/sample"
-import locations from "./config/locations"
+require("babel-core/register")
+require("babel-polyfill")
 
-export default function getLocation(name) {
-  return sample(locations)
-}
+require("babel-register")({
+  presets: ["env", "es2015", "stage-0"]
+})
+module.exports = require("./app.js")

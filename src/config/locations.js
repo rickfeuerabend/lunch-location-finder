@@ -1,9 +1,31 @@
+import fetch from "node-fetch"
+import cheerio from "cheerio"
+
+import get from "lodash/get"
+
+import { getWeekDay, getWeekDayOfTomorrow } from "../uitls"
+
 export default [
   {
     name: "Liebstöckel",
-    info: () => {
-      return "yeahhh"
-    }
+    info: () =>
+      fetch("https://liebstoeckel-tagesbar.de/mittagskarte/")
+        .then(responseRandom => responseRandom.text())
+        .then(res => {
+          const $ = cheerio.load(res)
+
+          const menu = $("#main")
+            .find(".entry-content")
+            .text()
+
+          var re = /Donnerstag(.*)Freitag/gms
+          var re = new RegExp(
+            `${getWeekDay()}(.*)${getWeekDayOfTomorrow()}`,
+            "gms"
+          )
+
+          return re.exec(menu)[0]
+        })
   },
   {
     name: "Azad Grill Jena"
@@ -33,7 +55,15 @@ export default [
     name: "Sushi Ninjas"
   },
   {
-    name: "Mekkan Döner"
+    name: "Mekkan Döner",
+    info: () => {
+      const menu = {
+        Montag: "Pizza Tag",
+        Dienstag: "Dönertag",
+        Freitag: "Nudeltag"
+      }
+      return get(menu, getWeekDay, "Normales Menü")
+    }
   },
   {
     name: "Syrisches Restraurant"
@@ -50,12 +80,12 @@ export default [
   {
     name: "Osteria Pizza"
   },
-
   {
     name: "Rosenmensa"
   },
   {
-    name: "Bunshi"
+    name: "Bunshi",
+    info: "Lust auf Spaziergang?"
   },
   {
     name: "Immergrün"
@@ -65,9 +95,7 @@ export default [
     name: "Grünovski"
   },
   {
-    name: "Teufelsgrill 😈 "
-  },
-  {
-    name: "Immergrün"
+    name: "Teufelsgrill 😈 ",
+    info: () => "Bratwurst & Rostbrätel ohne Ende"
   }
 ]
