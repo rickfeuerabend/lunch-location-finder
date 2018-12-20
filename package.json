@@ -1,6 +1,6 @@
 {
   "name": "lunch-location-finder",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Lunch location finder for Jena",
   "main": "src/index.js",
   "scripts": {
